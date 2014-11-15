@@ -43,8 +43,10 @@
       ],
       "js": [
         "src/inject/inject.js",
+        "js/jquery/jquery.min.js",
         "src/assets/js/googlefonts.js",
-        "../js/jquery/jquery.min.js"
+        "src/assets/js/HTMLgenerator.js",
+        "src/assets/js/info_gathering.js"
       ]
     }
   ]
