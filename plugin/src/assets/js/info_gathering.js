@@ -75,32 +75,6 @@ function send_message(msg) {
      Page.send(PageParams);
  }
 
- /*
-    Desc:   Loops through all messages displayed in the browser
-            between you and your friend and determines if each
-            message belongs to you
- */
- function checkMessages()
- {
-   $("li.webMessengerMessageGroup").each(function(i, val)
-   {
-     var searchString = $(this).find($("a[data-hovercard^='/ajax/hovercard/hovercard.php?id=']")).attr("data-hovercard");
-     var offsetFilter = "id=";
-     var cutoffFilter = "&";
-     var offset = searchString.indexOf(offsetFilter) + offsetFilter.length;
-     var cutoff = searchString.indexOf(cutoffFilter);
-     var id = searchString.substr(offset, cutoff-offset);
-     if (id == getUserID())
-     {
-       console.log("Message " + i + " belongs to me");
-     }
-     else
-     {
-       console.log("Message " + i + " does not belong to me");
-     }
-   });
- }
-
 function encrypt(msg){
   var userPublicKey = getUserPublicKey();
   var recipientPublicKey = getRecipientPublicKey();

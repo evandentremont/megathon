@@ -8,7 +8,7 @@ chrome.extension.sendMessage({}, function(response) {
 		//createKeyPair();
 		//getPublicKey(getUserID());
 		//postKey("This is a key", getUserID());
-		//checkMessages();
+		decryptMessages();
 		// ----------------------------------------------------------
 		// This part of the script triggers when page is done loading
 		console.log("Hello. This message was sent from scripts/inject.js");
