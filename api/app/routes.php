@@ -11,6 +11,7 @@
 |
 */
 
-Route::get('/keys/get/$hash', array('uses' => 'PublickeyController@get'));
-Route::get('/keys/post/$hash/$key', array('uses' => 'PublickeyController@post'));
+Route::post('/keys', array('uses' => 'PublickeyController@post'));
+
+Route::get('/keys/{hash}', array('uses' => 'PublickeyController@get'));
 
