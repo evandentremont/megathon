@@ -11,7 +11,6 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('hello');
-});
+Route::get('/keys/get/$hash', array('uses' => 'PublickeyController@get'));
+Route::get('/keys/post/$hash/$key', array('uses' => 'PublickeyController@post'));
+
