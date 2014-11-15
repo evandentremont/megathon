@@ -55,3 +55,21 @@ function SnowcryptMessageBox()
     $('#snowcrypt_textarea').val("");
   })
 }
+
+/*
+  Desc:   Toggles whether the "Invite to Snowcrypt!" button should
+          appear, or if "Send Encrytped Message" should be displayed
+*/
+function toggleInvite()
+{
+  var invite = $("#snowcrypt_invitelabel");
+  var send_encrypted_message = $("#snowcrypt_replylabel");
+  if (isCompatible())
+  {
+    invite.hide();
+  }
+  else
+  {
+    send_encrypted_message.hide();
+  }
+}

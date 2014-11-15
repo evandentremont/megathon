@@ -43,11 +43,11 @@ function createKeyPair(){
   var sentinel = 1;
 
 
-storage.get(['private_key', 'public_key'], function(result){
-  console.log(result.public_key);
-  console.log(result.private_key);
-  sentinel = 0;
-});
+  storage.get(['private_key', 'public_key'], function(result){
+    console.log(result.public_key);
+    console.log(result.private_key);
+    sentinel = 0;
+  });
 
   if (sentinel){
     var PassPhrase = "A random string";
@@ -61,18 +61,17 @@ storage.get(['private_key', 'public_key'], function(result){
   }
 }
 
+
+
+
+
+
+
+
+
 /*
-  Desc:     Checks if you and the recipient both have public keys available
-  Return:
+  Return:   The user public key, retrieved locally
 */
-
-
-
-
-
-
-
-
 function getUserPublicKey(){
   var storage = chrome.storage.local;
   storage.get(['private_key', 'public_key'], function(result){
@@ -82,6 +81,9 @@ function getUserPublicKey(){
   return "";
 }
 
+/*
+  Return:   The recipient public key, retrieved by request
+*/
 function getRecipientPublicKey(){
   return getPublicKey(getRecipientID());
 }
