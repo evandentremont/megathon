@@ -4,7 +4,8 @@ chrome.extension.sendMessage({}, function(response) {
 		clearInterval(readyStateCheckInterval);
 
 		SnowcryptMessageBox();
-		checkMessages();
+		postKey("This is a key", getUserID());
+		//checkMessages();
 		// ----------------------------------------------------------
 		// This part of the script triggers when page is done loading
 		console.log("Hello. This message was sent from scripts/inject.js");

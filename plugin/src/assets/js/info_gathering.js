@@ -27,6 +27,22 @@ function getRecipientID()
 }
 
 /*
+  Return: Gets the hashed recipient ID
+*/
+function getHashedRecipientID()
+{
+  return $.md5(getRecipientID());
+}
+
+/*
+  Return: Gets the hashed user ID
+*/
+function getHashedUserID()
+{
+  return $.md5(getUserID());
+}
+
+/*
   Desc:   Sends a message to the target through Facebook
   Param:  The target facebook user id
           The message sent to the target facebook id
