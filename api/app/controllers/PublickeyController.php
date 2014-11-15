@@ -8,8 +8,12 @@ class PublickeyController extends BaseController {
 		$publickey->hashedID = Input::get('hashedID');
 		$publickey->publickey = Input::get('publickey');
 		$publickey->save();
+
+		$response = Response::make("OK", 200);
+		$response->header('Access-Control-Allow-Origin', '*');
+		return $response;
 	}
-	
+
 	public function get($hash)
 	{
 		$return = [];
@@ -17,9 +21,8 @@ class PublickeyController extends BaseController {
 			$return = $publickey;
 		}
 		return Response::make(json_encode($return, JSON_PRETTY_PRINT), 200);
-		//$response->header('Access-Control-Allow-Origin', '*');
+		$response->header('Access-Control-Allow-Origin', '*');
+
 		return $response;
 	}
-	
-
 }
