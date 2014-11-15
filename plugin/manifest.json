@@ -1,9 +1,9 @@
 {
-  "name": "CHANGE THIS : Extension boilerplate",
+  "name": "Snowcrypt",
   "version": "0.0.1",
   "manifest_version": 2,
-  "description": "This extension was created with the awesome extensionizr.com",
-  "homepage_url": "http://extensionizr.com",
+  "description": "",
+  "homepage_url": "http://snowcrypt.ca",
   "icons": {
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",
@@ -25,10 +25,13 @@
     "contentSettings",
     "https://www.facebook.com/*"
   ],
+  "web_accessible_resources":[
+    "src/assets/fonts/*.*"
+  ],
   "content_scripts": [
     {
       "matches": [
-        "https://www.google.com/*"
+        "https://www.facebook.com/*"
       ],
       "css": [
         "src/inject/inject.css"
@@ -36,10 +39,12 @@
     },
     {
       "matches": [
-        "https://www.google.com/*"
+        "https://www.facebook.com/*"
       ],
       "js": [
-        "src/inject/inject.js"
+        "src/inject/inject.js",
+        "src/assets/js/googlefonts.js",
+        "../js/jquery/jquery.min.js"
       ]
     }
   ]

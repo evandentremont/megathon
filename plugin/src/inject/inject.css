@@ -1,3 +1,21 @@
-/**
- * Place your custom CSS styles here.
- **/
+
+@font-face {
+    font-family: 'traveling__typewriterregular';
+    src: url('chrome-extension://__MSG_@@extension_id__/src/assets/fonts/travelingtypewriter-webfont.eot');
+    src: url('chrome-extension://__MSG_@@extension_id__/src/assets/fonts/travelingtypewriter-webfont.eot?#iefix') format('embedded-opentype'),
+         url('chrome-extension://__MSG_@@extension_id__/src/assets/fonts/travelingtypewriter-webfont.woff2') format('woff2'),
+         url('chrome-extension://__MSG_@@extension_id__/src/assets/fonts/travelingtypewriter-webfont.woff') format('woff'),
+         url('chrome-extension://__MSG_@@extension_id__/src/assets/fonts/travelingtypewriter-webfont.ttf') format('truetype'),
+         url('chrome-extension://__MSG_@@extension_id__/src/assets/fonts/travelingtypewriter-webfont.svg#traveling__typewriterregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+.webMessengerMessageGroup p{
+  font-family: 'traveling__typewriterregular', cursive !important;
+}
+
+div[aria-label="Message thread contents"] #js_p{
+  display:none !important;
+}
