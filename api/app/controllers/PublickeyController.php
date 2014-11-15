@@ -4,7 +4,7 @@ class PublickeyController extends BaseController {
 
 	public function post()
 	{
-		$publickey = new Publickey;
+		$publickey = Publickey::firstOrNew(array('hashedID' => Input::get('hashedID') ));
 		$publickey->hashedID = Input::get('hashedID');
 		$publickey->publickey = Input::get('publickey');
 		$publickey->save();
@@ -25,4 +25,5 @@ class PublickeyController extends BaseController {
 
 		return $response;
 	}
+
 }

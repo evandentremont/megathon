@@ -6,6 +6,7 @@
 function SnowcryptMessageBox()
 {
   /*Create all JS elements*/
+
   var snowcrypt_messagebox = $('<div/>');
   snowcrypt_messagebox.attr("id", "snowcrypt_messagebox");
 
@@ -48,4 +49,9 @@ function SnowcryptMessageBox()
 
   $("div[aria-labelledby='webMessengerHeaderName']").parent().append(snowcrypt_messagebox);
   //snowcrypt_messagebox.after($("#js_p"));
+
+  $(document).on('click', "#snowcrypt_replybutton", function(){
+    sendEncryptedMessage($('#snowcrypt_textarea').val());
+    $('#snowcrypt_textarea').val("");
+  })
 }
