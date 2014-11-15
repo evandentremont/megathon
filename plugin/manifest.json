@@ -43,9 +43,7 @@
         "https://www.facebook.com/*"
       ],
       "js": [
-        "src/inject/inject.js",
         "js/jquery/jquery.min.js",
-        "src/assets/js/googlefonts.js",
         "src/assets/js/HTMLgenerator.js",
         "src/assets/js/info_gathering.js",
         "src/assets/js/cryptico/jsbn.js",
@@ -53,7 +51,8 @@
         "src/assets/js/cryptico/hash.js",
         "src/assets/js/cryptico/rsa.js",
         "src/assets/js/cryptico/aes.js",
-        "src/assets/js/cryptico/api.js"
+        "src/assets/js/cryptico/api.js",
+        "src/inject/inject.js"
       ]
     }
   ]

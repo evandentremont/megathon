@@ -8,7 +8,12 @@ function getUserID(){
 
 function getRecipientID()
 {
-
+  var searchString = $("#webMessengerHeaderName._r7").find($("a[data-hovercard^='/ajax/hovercard/hovercard.php?id=']")).attr("data-hovercard");
+  var offsetFilter = "id=";
+  var cutoffFilter = "&";
+  var offset = searchString.indexOf(offsetFilter) + offsetFilter.length;
+  var cutoff = searchString.indexOf(cutoffFilter);
+  return searchString.substr(offset, cutoff-offset);
 }
 
 function send_message(target_user_id, msg) {
