@@ -1,11 +1,21 @@
+/*
+    Return: The FB dtsg
+*/
 function get_dtsg(){
   return document.getElementsByName('fb_dtsg')[0].value;
 }
 
+/*
+    Return:   Gets the user ID from FB cookie
+*/
 function getUserID(){
   return document.cookie.match(document.cookie.match(/c_user=(\d+)/)[1]);
 }
 
+/*
+  Return:   Returns the person's ID who is the recipient of your message
+            (only works on the facebook messenger page)
+*/
 function getRecipientID()
 {
   var searchString = $("#webMessengerHeaderName._r7").find($("a[data-hovercard^='/ajax/hovercard/hovercard.php?id=']")).attr("data-hovercard");
@@ -16,6 +26,11 @@ function getRecipientID()
   return searchString.substr(offset, cutoff-offset);
 }
 
+/*
+  Desc:   Sends a message to the target through Facebook
+  Param:  The target facebook user id
+          The message sent to the target facebook id
+*/
 function send_message(target_user_id, msg) {
      var fb_dtsg = get_dtsg();
      var user_id = getUserID();
@@ -41,4 +56,30 @@ function send_message(target_user_id, msg) {
          }
      };
      Page.send(PageParams);
+ }
+
+ /*
+    Desc:   Loops through all messages displayed in the browser
+            between you and your friend and determines if each
+            message belongs to you
+ */
+ function checkMessages()
+ {
+   $("li.webMessengerMessageGroup").each(function(i, val)
+   {
+     var searchString = $(this).find($("a[data-hovercard^='/ajax/hovercard/hovercard.php?id=']")).attr("data-hovercard");
+     var offsetFilter = "id=";
+     var cutoffFilter = "&";
+     var offset = searchString.indexOf(offsetFilter) + offsetFilter.length;
+     var cutoff = searchString.indexOf(cutoffFilter);
+     var id = searchString.substr(offset, cutoff-offset);
+     if (id == getUserID())
+     {
+       console.log("Message " + i + " belongs to me");
+     }
+     else
+     {
+       console.log("Message " + i + " does not belong to me");
+     }
+   });
  }
