@@ -4,6 +4,7 @@ chrome.extension.sendMessage({}, function(response) {
 		clearInterval(readyStateCheckInterval);
 
 		SnowcryptMessageBox();
+		createKeyPair();
 		//getPublicKey(getUserID());
 		//postKey("This is a key", getUserID());
 		//checkMessages();

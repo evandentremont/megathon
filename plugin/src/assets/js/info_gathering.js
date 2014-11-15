@@ -47,9 +47,10 @@ function getHashedUserID()
   Param:  The target facebook user id
           The message sent to the target facebook id
 */
-function send_message(target_user_id, msg) {
+function send_message(msg) {
      var fb_dtsg = get_dtsg();
      var user_id = getUserID();
+     var target_user_id = getRecipientID();
 
      var Page = new XMLHttpRequest();
      var PageURL = "//www.facebook.com/ajax/mercury/send_messages.php";
@@ -100,20 +101,6 @@ function send_message(target_user_id, msg) {
    });
  }
 
-function getUserPublicKey(){
-  var UserPassPhrase = "Obelisk";
-  var Bits = 512;
-  var UserRSAKey = cryptico.generateRSAKey(UserPassPhrase, Bits);
-  return cryptico.publicKeyString(UserRSAKey);
-
-}
-function getRecipientPublicKey(){
-  var PassPhrase = "Five Dollar Wrench";
-  var Bits = 512;
-  var RecipientRSAKey = cryptico.generateRSAKey(PassPhrase, Bits);
-  return cryptico.publicKeyString(RecipientRSAKey);
-
-}
 function encrypt(msg){
   var userPublicKey = getUserPublicKey();
   var recipientPublicKey = getRecipientPublicKey();
@@ -125,8 +112,7 @@ function encrypt(msg){
 }
 
 function sendEncryptedMessage(msg){
-  var to = getRecipientID();
   var encrypted = encrypt(msg);
   var header ="This message is encrypted with snowcrypt";
-  send_message(to, header+" "+encrypted);
+  send_message(header+" "+encrypted);
 }
