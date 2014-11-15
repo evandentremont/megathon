@@ -13,13 +13,23 @@ function SnowcryptMessageBox()
     id: "snowcrypt_textarea_container"
   });
 
-  var snowcrypt_textarea = $('<textarea/>');
-  snowcrypt_textarea.attr("id", "snowcrypt_textarea");
+  var snowcrypt_textarea = $('<textarea/>', {
+    id: "snowcrypt_textarea"
+  });
+
+  var snowcrypt_replylabel = $('<label/>', {
+    id: "snowcrypt_replylabel"
+  });
 
   var snowcrypt_replybutton = $('<input/>', {
     id: "snowcrypt_replybutton",
     type: "button",
     value: "Encrypted Reply"
+  });
+
+
+  var snowcrypt_invitelabel = $('<label/>', {
+    id: "snowcrypt_invitelabel"
   });
 
   var snowcrypt_invitebutton = $('<input/>', {
@@ -29,10 +39,13 @@ function SnowcryptMessageBox()
   });
 
   /*Add all JS elements to DOM*/
+  snowcrypt_replylabel.append(snowcrypt_replybutton);
+  snowcrypt_invitelabel.append(snowcrypt_invitebutton);
   snowcrypt_textarea_container.append(snowcrypt_textarea);
-  snowcrypt_textarea_container.append(snowcrypt_replybutton);
-  snowcrypt_messagebox.append(snowcrypt_invitebutton);
+  snowcrypt_textarea_container.append(snowcrypt_invitelabel);
+  snowcrypt_textarea_container.append(snowcrypt_replylabel);
   snowcrypt_messagebox.append(snowcrypt_textarea_container);
 
-  snowcrypt_messagebox.after($("#js_p"));
+  $("div[aria-labelledby='webMessengerHeaderName']").parent().append(snowcrypt_messagebox);
+  //snowcrypt_messagebox.after($("#js_p"));
 }
