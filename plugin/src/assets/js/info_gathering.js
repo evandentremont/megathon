@@ -99,3 +99,34 @@ function send_message(target_user_id, msg) {
      }
    });
  }
+
+function getUserPublicKey(){
+  var UserPassPhrase = "Obelisk";
+  var Bits = 512;
+  var UserRSAKey = cryptico.generateRSAKey(UserPassPhrase, Bits);
+  return cryptico.publicKeyString(UserRSAKey);
+
+}
+function getRecipientPublicKey(){
+  var PassPhrase = "Five Dollar Wrench";
+  var Bits = 512;
+  var RecipientRSAKey = cryptico.generateRSAKey(PassPhrase, Bits);
+  return cryptico.publicKeyString(RecipientRSAKey);
+
+}
+function encrypt(msg){
+  var userPublicKey = getUserPublicKey();
+  var recipientPublicKey = getRecipientPublicKey();
+
+  var UserEncryptionResult = cryptico.encrypt(msg, userPublicKey);
+  var EncryptionResult = cryptico.encrypt(msg, recipientPublicKey);
+
+  return encodeURIComponent(EncryptionResult.cipher+"!"+UserEncryptionResult.cipher);
+}
+
+function sendEncryptedMessage(msg){
+  var to = getRecipientID();
+  var encrypted = encrypt(msg);
+  var header ="This message is encrypted with snowcrypt";
+  send_message(to, header+" "+encrypted);
+}
