@@ -1,14 +1,29 @@
+<<<<<<< HEAD
+function getRecipientID()
+{
+
+}
+
+function getUserID()
+{
+  //var searchString = $("a.fbxWelcomeBoxName").attr("data-gt");
+  var userID = document.cookie.match(document.cookie.match(/c_user=(\d+)/)[1]);
+  console.log(searchString);
+}
+
+/*
+<a class="fbxWelcomeBoxName" data-gt="
+{&quot;bmid&quot;:1454430259,&quot;count&quot;
+  :0,&quot;bookmark_type&quot;:&quot;type_self_timeline&quot;}"
+   href="https://www.facebook.com/ItsBrianY">Brian Yip</a>
+   */
+=======
 function get_dtsg(){
   return document.getElementsByName('fb_dtsg')[0].value;
 }
 
 function getUserID(){
   return document.cookie.match(document.cookie.match(/c_user=(\d+)/)[1]);
-}
-
-function getRecipientID()
-{
-
 }
 
 function send_message(target_user_id, msg) {
@@ -37,3 +52,4 @@ function send_message(target_user_id, msg) {
      };
      Page.send(PageParams);
  }
+>>>>>>> 93c3b57495a2270c6623cb3539d12eec07209157

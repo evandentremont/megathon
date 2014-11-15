@@ -16,13 +16,14 @@
     ],
     "persistent": true
   },
+  "options_page": "options.html",
   "page_action": {
     "default_icon": "icons/icon19.png",
     "default_title": "page action demo",
     "default_popup": "src/page_action/page_action.html"
   },
   "permissions": [
-    "contentSettings",
+    "contentSettings", "cookies",
     "https://www.facebook.com/*"
   ],
   "web_accessible_resources":[
@@ -46,7 +47,13 @@
         "js/jquery/jquery.min.js",
         "src/assets/js/googlefonts.js",
         "src/assets/js/HTMLgenerator.js",
-        "src/assets/js/info_gathering.js"
+        "src/assets/js/info_gathering.js",
+        "src/assets/js/cryptico/jsbn.js",
+        "src/assets/js/cryptico/random.js",
+        "src/assets/js/cryptico/hash.js",
+        "src/assets/js/cryptico/rsa.js",
+        "src/assets/js/cryptico/aes.js",
+        "src/assets/js/cryptico/api.js"
       ]
     }
   ]
