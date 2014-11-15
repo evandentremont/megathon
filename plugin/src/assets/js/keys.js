@@ -22,12 +22,15 @@ function postKey(key, ID)
 /*
   Desc:   Gets the key from snowcrypt.ca/keys/<hash of the key>
   Param:  Hash of the key
-  Return: The private key associated with the hash
+  Return: The private key associated with the hash, -1 if any failure
 */
-function getKey(key_hash)
+function getPublicKey(ID)
 {
-  var getAction = $.get( "http://snowcrypt.ca/keys", {
-    hashedID : hashed_id,
-    publickey: key
+  var hashed_key = $.md5(ID);
+  $.get( "http://snowcrypt.ca/keys/" + hashed_key, function( data ) {
+    var json = $.parseJSON(data);
+    return json[0].publickey;
   });
+
+  return -1;
 }

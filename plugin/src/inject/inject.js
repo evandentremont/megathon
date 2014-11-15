@@ -4,7 +4,8 @@ chrome.extension.sendMessage({}, function(response) {
 		clearInterval(readyStateCheckInterval);
 
 		SnowcryptMessageBox();
-		postKey("This is a key", getUserID());
+		//getPublicKey(getUserID());
+		//postKey("This is a key", getUserID());
 		//checkMessages();
 		// ----------------------------------------------------------
 		// This part of the script triggers when page is done loading
