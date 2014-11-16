@@ -48,17 +48,8 @@ function getPrivateKey(cb)
     });
 }
 
-/*
-  Desc:   Creates a private and a public key pair
-*/
-function createKeyPair(){
-  var sentinel = 1;
-  chrome.storage.sync.get(['passPhrase', 'public_key'], function(result){
-    //sentinel = 0;
-  });
-
-  if (sentinel){
-    var PassPhrase = "A random string";
+function createNewKeyPair(){
+    var PassPhrase = "A random string test";
     var Bits = 512;
     var gen_private_key = cryptico.generateRSAKey(PassPhrase, Bits);
     var gen_public_key =  cryptico.publicKeyString(gen_private_key);
@@ -66,7 +57,19 @@ function createKeyPair(){
     chrome.storage.sync.set({passPhrase: PassPhrase, bits: Bits, public_key: gen_public_key}, function(){
       postKey(gen_public_key);
     });
-  }
+}
+
+/*
+  Desc:   Creates a private and a public key pair
+*/
+function createKeyPair(){
+  var sentinel = 1;
+  chrome.storage.sync.get(['passPhrase', 'public_key'], function(result){
+    //sentinel = 0;
+    if(!result.length){
+      createNewKeyPair();
+    }
+  });
 }
 
 /*
