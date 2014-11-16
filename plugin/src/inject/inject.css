@@ -12,9 +12,17 @@
 
 }
 
+/*
 .webMessengerMessageGroup p{
   font-family: 'traveling__typewriterregular', cursive !important;
 }
+*/
+
+
+.snowcrypted{
+  font-family: 'traveling__typewriterregular', cursive !important;
+}
+
 
 div[aria-label="Message thread contents"] #js_p{
   display:none !important;

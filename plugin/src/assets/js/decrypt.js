@@ -19,6 +19,7 @@ function decryptMessages()
     $(function(){
         var encry_paragraph_search = search.parent().parent().find("._38.direction_ltr p").each(function(){
           var encry_paragraph = $(this).text();
+          $(this).attr("class", "snowcrypted");
           if (id == getUserID())   //You have sent this message
           {
             console.log(displaySent(encry_paragraph));
@@ -31,7 +32,7 @@ function decryptMessages()
           }
       });
     });
-    
+
   });
 }
 

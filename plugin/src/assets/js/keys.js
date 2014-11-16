@@ -14,7 +14,7 @@ function postKey(key)
 
   postAction.done(function()
   {
-    $( "#snowcrypt_textarea" ).val( "Posting done." );
+    //$( "#snowcrypt_textarea" ).val( "Posting done." );
   });
 
 }
@@ -28,10 +28,12 @@ function getPublicKey(ID)
 {
   var hashed_key = $.md5(ID);
   $.get( "http://snowcrypt.ca/keys/" + hashed_key, function( data ) {
-      var json = $.parseJSON(data);
-      console.log(typeof json);
-      if (json == null)
-        return json[0].publickey;
+      if(data != '[\n\n]')
+      {
+        var json = $.parseJSON(data);
+        if (json != null)
+          return json[0].publickey;
+      }
   });
   return -1;
 }
@@ -88,12 +90,18 @@ function getUserPublicKey(cb){
   Param:  Hash of the key
   Return: The private key associated with the hash, -1 if any failure
 */
-
 function getRecipientPublicKey(cb){
   var hashed_id = $.md5(getRecipientID());
   $.get( "http://snowcrypt.ca/keys/" + hashed_id, function( data ) {
-    var json = $.parseJSON(data);
-    console.log("getRecipientPublicKey " + json[0].publickey);
-    cb(json[0].publickey);
+    if(data != '[\n\n]'){
+      var json = $.parseJSON(data);
+      console.log("getRecipientPublicKey " + json[0].publickey);
+      cb(json[0].publickey);
+    }else{
+      console.log("Public key not found!");
+      cb(undefined);
+    }
+      //cb(false);
   });
+  //return -1;
 }

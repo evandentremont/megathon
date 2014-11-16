@@ -64,12 +64,34 @@ function toggleInvite()
 {
   var invite = $("#snowcrypt_invitelabel");
   var send_encrypted_message = $("#snowcrypt_replylabel");
-  if (isCompatible())
-  {
-    invite.hide();
-  }
-  else
-  {
-    send_encrypted_message.hide();
-  }
+//  var compat = isCompatible();
+  getRecipientPublicKey(function(result){
+      recipient_public_key = result;
+      alert(recipient_public_key);
+      console.log("Here is the retrieved public key: " + recipient_public_key);
+      if (recipient_public_key != undefined)
+      {
+        console.log("True from callback");
+        invite.hide();
+        return true;
+      }
+      console.log("False from callback");
+      send_encrypted_message.hide();
+      return false;
+  });
+
+}
+
+/*
+  Desc:   Replaces the encrypted text with the decrypted text
+  Param:  The encrypted text; Note that this should be a jQuery p object
+          The corresponding decrypted text; Note that this also has to be a jQuery p object
+  Notes:  It is advised to do something to the class of decrypted_text so that a font
+          can be applied
+*/
+function replaceEncryptedText(encrypted_text, decrypted_text)
+{
+  decrypted_text.attr("class", "snowcrypted");
+  var decrypted_text_result = decrypted_text.html();
+  encrypted_text.replaceWith(decrypted_text_result);
 }
