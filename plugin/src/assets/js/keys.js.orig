@@ -28,12 +28,18 @@ function getPublicKey(ID)
 {
   var hashed_key = $.md5(ID);
   $.get( "http://snowcrypt.ca/keys/" + hashed_key, function( data ) {
+<<<<<<< Updated upstream
       if(data != '[\n\n]')
       {
         var json = $.parseJSON(data);
-      var json = $.parseJSON(data);
+        if (json != null)
           return json[0].publickey;
       }
+=======
+      var json = $.parseJSON(data);
+      if (json == null)
+        return json[0].publickey;
+>>>>>>> Stashed changes
   });
   return -1;
 }
@@ -88,14 +94,20 @@ function getUserPublicKey(cb){
 function getRecipientPublicKey(cb){
   var hashed_id = $.md5(getRecipientID());
   $.get( "http://snowcrypt.ca/keys/" + hashed_id, function( data ) {
+<<<<<<< Updated upstream
     if(data != '[\n\n]'){
       var json = $.parseJSON(data);
+      console.log("getRecipientPublicKey " + json[0].publickey);
       cb(json[0].publickey);
     }else{
       console.log("Public key not found!");
       cb(undefined);
     }
       //cb(false);
+=======
+    var json = $.parseJSON(data);
+    cb(json[0].publickey);
+>>>>>>> Stashed changes
   });
   //return -1;
 }

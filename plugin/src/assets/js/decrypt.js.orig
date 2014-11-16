@@ -4,6 +4,38 @@
 */
 function decryptMessages()
 {
+<<<<<<< Updated upstream
+  $("li.webMessengerMessageGroup").each(function(i, val)
+  {
+
+    var search = $(this).find($("a[data-hovercard^='/ajax/hovercard/hovercard.php?id=']"));
+    var searchString = search.attr("data-hovercard");
+    var offsetFilter = "id=";
+    var cutoffFilter = "&";
+    var offset = searchString.indexOf(offsetFilter) + offsetFilter.length;
+    var cutoff = searchString.indexOf(cutoffFilter);
+    var id = searchString.substr(offset, cutoff-offset);
+
+    //Wait for the DOM to load due to the lengths of FB chat
+    $(function(){
+        var encry_paragraph_search = search.parent().parent().find("._38.direction_ltr p").each(function(){
+          var encry_paragraph = $(this).text();
+          $(this).attr("class", "snowcrypted");
+          if (id == getUserID())   //You have sent this message
+          {
+            //console.log(displaySent(encry_paragraph));
+            //console.log("Message " + i + " belongs to me");
+          }
+          else //You have recieved this message
+          {
+            //console.log(displayRecieved(encry_paragraph));
+          //  console.log("Message " + i + " does not belong to me");
+          }
+      });
+    });
+
+  });
+=======
   getPrivateKey(function(key){
 
 
@@ -22,7 +54,6 @@ function decryptMessages()
 
           var encry_paragraph_search = search.parent().parent().find("._38.direction_ltr p").each(function(){
             var encry_paragraph = $(this).text();
-          $(this).attr("class", "snowcrypted");
             if (id == getUserID())   //You have sent this message
             {
 
@@ -42,6 +73,7 @@ function decryptMessages()
       });
     });
 
+>>>>>>> Stashed changes
 }
 
 /*
