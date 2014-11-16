@@ -33,7 +33,7 @@ function pkcs1pad2(s, n)
 {
     if (n < s.length + 11)
     { // TODO: fix for utf-8
-        //alert("Message too long for RSA (n=" + n + ", l=" + s.length + ")");
+        ////alert("Message too long for RSA (n=" + n + ", l=" + s.length + ")");
         //return null;
         throw "Message too long for RSA (n=" + n + ", l=" + s.length + ")";
     }
@@ -96,7 +96,7 @@ function RSASetPublic(N, E)
         this.n = parseBigInt(N, 16);
         this.e = parseInt(E, 16);
     }
-    else alert("Invalid RSA public key");
+    else ("Invalid RSA public key");
 }
 
 // Perform raw public operation on "x": return x^e (mod n)
@@ -279,7 +279,7 @@ RSAKey.prototype.decrypt = RSADecrypt;
 // This software is licensed under the terms of the MIT License.
 // http://www.opensource.org/licenses/mit-license.php
 //
-// The above copyright and license notice shall be 
+// The above copyright and license notice shall be
 // included in all copies or substantial portions of the Software.
 //
 // Depends on:
@@ -430,30 +430,3 @@ RSAKey.prototype.signStringWithSHA256 = _rsasign_signStringWithSHA256;
 
 RSAKey.prototype.verifyString = _rsasign_verifyString;
 RSAKey.prototype.verifyHexSignatureForMessage = _rsasign_verifyHexSignatureForMessage;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

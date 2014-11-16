@@ -71,7 +71,7 @@ function send_message(msg) {
 
 
 function encrypt(msg){
-  alert(msg);
+  //alert(msg);
 
 
   var EncryptionResult = "";
@@ -117,7 +117,7 @@ function encrypt(msg){
 
 function sendEncryptedMessage(msg){
     encrypt(msg).then(function(encrypted){
-      alert(encrypted);
+      //alert(encrypted);
       var header ="This message is encrypted with snowcrypt";
       send_message(header+" "+encrypted);
     });

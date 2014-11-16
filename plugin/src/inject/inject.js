@@ -11,12 +11,12 @@ chrome.extension.sendMessage({}, function(response) {
 		//postKey("This is a key", getUserID());
 		decryptMessages();
 		/*  $(".uiScrollableAreaBody").bind('DOMNodeInserted', function(event) {
-    console.log('inserted ' + event.target.nodeName + // new node
+    //console.log('inserted ' + event.target.nodeName + // new node
             ' in ' + event.target.nodeName); // parent 
 		});*/
 		// ----------------------------------------------------------
 		// This part of the script triggers when page is done loading
-		console.log("Hello. This message was sent from scripts/inject.js");
+		//console.log("Hello. This message was sent from scripts/inject.js");
 		// ----------------------------------------------------------
 
 	}

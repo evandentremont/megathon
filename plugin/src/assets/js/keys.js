@@ -41,7 +41,7 @@ function getPublicKey(ID)
 
 function getPrivateKey(cb)
 {
-  console.log('chrome storage');
+  //console.log('chrome storage');
     chrome.storage.sync.get(['passPhrase', 'bits'], function(result){
         rsakey = cryptico.generateRSAKey(result.passPhrase, result.bits);
         cb(rsakey);
@@ -92,7 +92,7 @@ function getRecipientPublicKey(cb){
       var json = $.parseJSON(data);
       cb(json[0].publickey);
     }else{
-      console.log("Public key not found!");
+      //console.log("Public key not found!");
       cb(undefined);
     }
       //cb(false);

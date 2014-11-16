@@ -352,7 +352,7 @@ var cryptico = (function() {
     my.importRSAKey = function(saved){
       var rsa = new RSAKey();
       rsa.generate(512, 3);
-      console.log(rsa);
+      //console.log(rsa);
 
       for (var prop in saved) {
          var bignum = saved[prop];
@@ -365,8 +365,8 @@ var cryptico = (function() {
       }
 
       rsa.e = object.e;
-      console.log("rsa");
-      console.log(rsa);
+      //console.log("rsa");
+      //console.log(rsa);
       return rsa;
     }
 

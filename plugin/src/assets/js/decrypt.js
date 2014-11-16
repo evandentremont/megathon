@@ -27,8 +27,8 @@ function decryptMessages()
             {
 
               displaySent(encry_paragraph, key, function(result){
-                  console.log(result);
-                  replaceEncryptedText($this, $("<p>"+result+"</p>"));
+                  //console.log(result);
+                  replaceEncryptedText($this, $("<p class='snowcrypted'>"+result+"</p>"));
 
               })
             }
@@ -36,8 +36,8 @@ function decryptMessages()
             {
 
               displayRecieved(encry_paragraph, key, function(result){
-                  console.log(result);
-                  replaceEncryptedText($this, $("<p>"+result+"</p>"));
+                  //console.log(result);
+                  replaceEncryptedText($this, $("<p class='snowcrypted'>"+result+"</p>"));
               })
             }
           });

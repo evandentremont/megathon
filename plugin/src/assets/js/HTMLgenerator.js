@@ -68,15 +68,15 @@ function toggleInvite()
 //  var compat = isCompatible();
   getRecipientPublicKey(function(result){
       recipient_public_key = result;
-      alert(recipient_public_key);
-      console.log("Here is the retrieved public key: " + recipient_public_key);
+      //alert(recipient_public_key);
+      //console.log("Here is the retrieved public key: " + recipient_public_key);
       if (recipient_public_key != undefined)
       {
-        console.log("True from callback");
+        //console.log("True from callback");
         invite.hide();
         return true;
       }
-      console.log("False from callback");
+      //console.log("False from callback");
       send_encrypted_message.hide();
       return false;
   });
@@ -92,7 +92,7 @@ function toggleInvite()
 */
 function replaceEncryptedText(encrypted_text, decrypted_text)
 {
-  decrypted_text.attr("class", "snowcrypted");
-  var decrypted_text_result = decrypted_text.html();
-  encrypted_text.replaceWith(decrypted_text_result);
+
+  decrypted_text.addClass("snowcrypted");
+  encrypted_text.replaceWith(decrypted_text);
 }

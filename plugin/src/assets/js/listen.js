@@ -10,13 +10,13 @@ function messageCount()
   /*
   $(".webMessengerMessageGroup").find('p.snowcrypt').livequery(function () {
     //$("#statusBar").text('You may now remove items.');
-    console.log("You have sent/recieved an encrypted message");
+    //console.log("You have sent/recieved an encrypted message");
   });
   /*
   $(document).on('DOMNodeInserted', function(e) {
     if (e.target.class == 'snowcrypted') {
-       //alert("Added this element: " + e.target);
-       console.log("A new element has been added to the DOM!");
+       ////alert("Added this element: " + e.target);
+       //console.log("A new element has been added to the DOM!");
     }
 
   });*/
