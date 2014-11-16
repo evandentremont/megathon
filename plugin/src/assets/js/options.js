@@ -1,9 +1,9 @@
 $(window).load(function(){
    createNewKeyPair();
    getUserPublicKey(function(key){
-     $("#public_key").val(key);
+     $("#public_key").text(key);
    });
-   getPrivateKey(function(key){
-     $("#private_key").val(key);
+   getPassPhrase(function(passPhrase){
+     $("#private_key").val(passPhrase);
    });
 });

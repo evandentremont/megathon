@@ -47,6 +47,13 @@ function getPrivateKey(cb)
     });
 }
 
+function getPassPhrase(cb)
+{
+    chrome.storage.sync.get(['passPhrase'], function(result){
+        cb(result.passPhrase);
+    });
+}
+
 function createNewKeyPair(){
     var PassPhrase = "A random string test";
     var Bits = 512;
