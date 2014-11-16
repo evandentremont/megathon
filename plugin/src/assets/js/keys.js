@@ -1,5 +1,3 @@
-
-
 /*
   Desc:   Posts the given key to snowcrypt.ca/keys
   Param:  The key that will be posted to the URL
@@ -21,11 +19,21 @@ function postKey(key)
 
 }
 
+/*
+  Desc:   Gets the key from snowcrypt.ca/keys/<hash of the key>
+  Param:  Hash of the key
+  Return: The private key associated with the hash, -1 if any failure
+*/
+function getPublicKey(ID)
+{
+  var hashed_key = $.md5(ID);
+  $.get( "http://snowcrypt.ca/keys/" + hashed_key, function( data ) {
       var json = $.parseJSON(data);
       console.log(typeof json);
       if (json == null)
         return json[0].publickey;
-
+  });
+  return -1;
 }
 
 
@@ -34,6 +42,8 @@ function getPrivateKey()
   storage.get('private_key', function(result){
     return result.private_key;
   });
+
+}
 
 /*
   Desc:   Creates a private and a public key pair
