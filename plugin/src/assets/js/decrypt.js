@@ -32,7 +32,7 @@ function decryptMessages()
 
               displaySent(encry_paragraph, key, function(result){
                   //console.log(result);
-                  replaceEncryptedText($this, $("<p class='snowcrypted'>"+result+"</p>"));
+                  replaceEncryptedText($this, $(result));
 
               })
             }
@@ -41,7 +41,7 @@ function decryptMessages()
 
               displayRecieved(encry_paragraph, key, function(result){
                   //console.log(result);
-                  replaceEncryptedText($this, $("<p class='snowcrypted'>"+result+"</p>"));
+                  replaceEncryptedText($this, $(result));
               })
             }
           });
@@ -61,12 +61,12 @@ function displayRecieved(paragraph, key, cb)
   //Parse until an exclamation mark is reached
   paragraph.replace(/(\r\n|\n|\r)/gm,"");
   var splitpos = paragraph.indexOf('!');
-  if(splitpos){
+  if(splitpos > 0){
     var received_paragraph = paragraph.substr(41, splitpos-41);
     var decrypted = cryptico.decrypt(received_paragraph, key);
-    cb(decrypted.plaintext);
+    cb("<p class='snowcrypted'>"+decrypted.plaintext+"<small> ("+decrypted.signature+")</small></p>");
   }
-  else cb("");
+  else cb("<p>"+paragraph+"</p>");
 }
 
 /*
@@ -80,10 +80,10 @@ function displaySent(paragraph, key, cb)
   paragraph.replace(/(\r\n|\n|\r)/gm,"");
 
   var splitpos = paragraph.indexOf('!');
-  if(splitpos){
+  if(splitpos > 0){
     var sent_paragraph = paragraph.substr(splitpos+1, paragraph.length - splitpos);
     var decrypted = cryptico.decrypt(sent_paragraph, key);
-    cb(decrypted.plaintext);
+    cb("<p class='snowcrypted'>"+decrypted.plaintext+"<small> ("+decrypted.signature+")</small></p>");
   }
-  else cb("");
+  else cb("<p>"+paragraph+"</p>");
 }

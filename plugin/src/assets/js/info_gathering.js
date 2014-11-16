@@ -70,56 +70,55 @@ function send_message(msg) {
  }
 
 
-function encrypt(msg){
+function encrypt(msg, privateKey){
   //alert(msg);
 
 
   var EncryptionResult = "";
   var UserEncryptionResult = "";
 
-  var getRPublicKey = function() {
-    deferred = Q.defer();
-    getRecipientPublicKey(function(result){
-      result = cryptico.encrypt(msg, result);
-      deferred.resolve(result);
+    var getRPublicKey = function() {
+      deferred = Q.defer();
+      getRecipientPublicKey(function(result){
+        result = cryptico.encrypt(msg, result, privateKey);
+        deferred.resolve(result);
+      });
+      return deferred.promise;
+    }
+
+    var getUPublicKey = function() {
+      deferred = Q.defer();
+      getUserPublicKey(function(result){
+        result = cryptico.encrypt(msg, result, privateKey);
+        deferred.resolve(result);
+      });
+      return deferred.promise;
+    }
+
+    return getRPublicKey()
+    .then(function(key) {
+      return key;
+    })
+    .then(function(Rkey) {
+      return getUPublicKey().then(function(Ukey) {
+        return [Rkey,Ukey];
+      });
+
+    }).spread(function(Rkey,Ukey){
+      encrypted = encodeURIComponent(Rkey.cipher+"!"+Ukey.cipher);
+
+      return encrypted;
     });
-    return deferred.promise;
-  }
-
-  var getUPublicKey = function() {
-    deferred = Q.defer();
-    getUserPublicKey(function(result){
-      result = cryptico.encrypt(msg, result);
-      deferred.resolve(result);
-    });
-    return deferred.promise;
-  }
-
-  return getRPublicKey()
-  .then(function(key) {
-    return key;
-  })
-  .then(function(Rkey) {
-    return getUPublicKey().then(function(Ukey) {
-      return [Rkey,Ukey];
-    });
-
-  }).spread(function(Rkey,Ukey){
-    encrypted = encodeURIComponent(Rkey.cipher+"!"+Ukey.cipher);
-
-    return encrypted;
-  });
-
-
 
 
 }
 
 function sendEncryptedMessage(msg){
-    encrypt(msg).then(function(encrypted){
+  getPrivateKey(function(privateKey){
+    encrypt(msg, privateKey).then(function(encrypted){
       //alert(encrypted);
       var header ="This message is encrypted with snowcrypt";
       send_message(header+" "+encrypted);
     });
-
+  });
 }
