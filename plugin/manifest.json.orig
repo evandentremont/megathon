@@ -29,8 +29,8 @@
   ],
   "web_accessible_resources":[
     "src/assets/fonts/*.*",
+<<<<<<< Updated upstream
     "js/jquery/jquery.min.js",
-    "src/assets/css/bootstrap.min.css"
     "src/assets/js/q.js",
     "src/assets/js/jQuery-MD5-master/jquery.md5.js",
     "src/assets/js/cryptico/jsbn.js",
@@ -45,6 +45,9 @@
     "src/assets/js/keys.js",
     "src/assets/js/HTMLgenerator.js",
     "src/inject/inject.js"
+=======
+    "src/assets/css/bootstrap.min.css"
+>>>>>>> Stashed changes
   ],
   "content_scripts": [
     {

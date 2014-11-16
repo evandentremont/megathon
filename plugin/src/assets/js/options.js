@@ -1,0 +1,9 @@
+$(window).load(function(){
+   createNewKeyPair();
+   getUserPublicKey(function(key){
+     $("#public_key").val(key);
+   });
+   getPrivateKey(function(key){
+     $("#private_key").val(key);
+   });
+});

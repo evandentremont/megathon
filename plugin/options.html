@@ -1,16 +1,89 @@
-<html>
-    <head>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-        <script language="JavaScript" type="text/javascript" src="src/assets/js/cryptico/jsbn.js"></script>
-        <script language="JavaScript" type="text/javascript" src="src/assets/js/cryptico/random.js"></script>
-        <script language="JavaScript" type="text/javascript" src="src/assets/js/cryptico/hash.js"></script>
-        <script language="JavaScript" type="text/javascript" src="src/assets/js/cryptico/rsa.js"></script>
-        <script language="JavaScript" type="text/javascript" src="src/assets/js/cryptico/aes.js"></script>
-        <script language="JavaScript" type="text/javascript" src="src/assets/js/cryptico/api.js"></script>
-        <script language="JavaScript" type="text/javascript" src="src/assets/js/cryptotest.js"></script>
-    </head>
+    <title>Snowcrypt Settings</title>
 
-    <body style="font-family: monospace; white-space:pre;">
+    <!-- Bootstrap core CSS -->
+    <link href="src/assets/css/bootstrap.min.css" rel="stylesheet">
 
-    </body>
+    <script src="js/jquery/jquery.min.js"></script>
+    <script src="src/assets/js/q.js"></script>
+    <script src="src/assets/js/jQuery-MD5-master/jquery.md5.js"></script>
+    <script src="src/assets/js/jquery.livequery.min.js"></script>
+    <script src="src/assets/js/cryptico/jsbn.js"></script>
+    <script src="src/assets/js/cryptico/random.js"></script>
+    <script src="src/assets/js/cryptico/hash.js"></script>
+    <script src="src/assets/js/cryptico/rsa.js"></script>
+    <script src="src/assets/js/cryptico/aes.js"></script>
+    <script src="src/assets/js/cryptico/api.js"></script>
+    <script src="src/assets/js/compat.js"></script>
+    <script src="src/assets/js/decrypt.js"></script>
+    <script src="src/assets/js/info_gathering.js"></script>
+    <script src="src/assets/js/keys.js"></script>
+    <script src="src/assets/js/HTMLgenerator.js"></script>
+    <script src="src/assets/js/listen.js"></script>
+    <script src="src/assets/js/options.js"></script>
+
+
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Snowcrypt Settings</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+
+    <form class="form-horizontal" role="form">
+      <div class="form-group">
+        <label for="private_key" class="col-sm-2 control-label">Private Key</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="private_key" placeholder="">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="public_key" class="col-sm-2 control-label">Public Key</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="public_key" placeholder="">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button type="submit" class="btn btn-default">Sign in</button>
+        </div>
+      </div>
+    </form>
+
+
+    </div><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!--<script src="../../dist/js/bootstrap.min.js"></script> -->
+
+  </body>
 </html>
