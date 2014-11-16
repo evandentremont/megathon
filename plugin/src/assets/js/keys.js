@@ -55,7 +55,7 @@ function getPassPhrase(cb)
 }
 
 function createNewKeyPair(){
-    var PassPhrase = "A random string test";
+    var PassPhrase = "A random string tester";
     var Bits = 512;
     var gen_private_key = cryptico.generateRSAKey(PassPhrase, Bits);
     var gen_public_key =  cryptico.publicKeyString(gen_private_key);
@@ -69,7 +69,7 @@ function createNewKeyPair(){
   Desc:   Creates a private and a public key pair
 */
 function createKeyPair(){
-  chrome.storage.sync.get(['passPhrase', 'public_key'], function(result){
+  chrome.storage.sync.get(['passPhrase'], function(result){
     if(!result.length){
       createNewKeyPair();
     }

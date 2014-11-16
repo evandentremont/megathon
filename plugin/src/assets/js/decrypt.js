@@ -61,7 +61,7 @@ function displayRecieved(paragraph, key, cb)
   //Parse until an exclamation mark is reached
   paragraph.replace(/(\r\n|\n|\r)/gm,"");
   var splitpos = paragraph.indexOf('!');
-  if(splitpos > 0){
+  if(strpos("This message is encrypted with snowcrypt")){
     var received_paragraph = paragraph.substr(41, splitpos-41);
     var decrypted = cryptico.decrypt(received_paragraph, key);
     if(decrypted.status =="success"){
@@ -83,7 +83,7 @@ function displaySent(paragraph, key, cb)
   paragraph.replace(/(\r\n|\n|\r)/gm,"");
 
   var splitpos = paragraph.indexOf('!');
-  if(splitpos > 0){
+  if(strpos("This message is encrypted with snowcrypt")){
     var sent_paragraph = paragraph.substr(splitpos+1, paragraph.length - splitpos);
     var decrypted = cryptico.decrypt(sent_paragraph, key);
     if(decrypted.status =="success"){
