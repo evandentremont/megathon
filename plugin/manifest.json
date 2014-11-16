@@ -47,6 +47,7 @@
         "js/jquery/jquery.min.js",
         "src/assets/js/q.js",
         "src/assets/js/jQuery-MD5-master/jquery.md5.js",
+        "src/assets/js/jquery.livequery.min.js",
         "src/assets/js/cryptico/jsbn.js",
         "src/assets/js/cryptico/random.js",
         "src/assets/js/cryptico/hash.js",
@@ -58,6 +59,7 @@
         "src/assets/js/info_gathering.js",
         "src/assets/js/keys.js",
         "src/assets/js/HTMLgenerator.js",
+        "src/assets/js/listen.js",
         "src/inject/inject.js"
       ]
     }

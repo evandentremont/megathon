@@ -22,13 +22,13 @@ function decryptMessages()
           $(this).attr("class", "snowcrypted");
           if (id == getUserID())   //You have sent this message
           {
-            console.log(displaySent(encry_paragraph));
-            console.log("Message " + i + " belongs to me");
+            //console.log(displaySent(encry_paragraph));
+            //console.log("Message " + i + " belongs to me");
           }
           else //You have recieved this message
           {
-            console.log(displayRecieved(encry_paragraph));
-            console.log("Message " + i + " does not belong to me");
+            //console.log(displayRecieved(encry_paragraph));
+          //  console.log("Message " + i + " does not belong to me");
           }
       });
     });

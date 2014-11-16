@@ -15,7 +15,8 @@ function SnowcryptMessageBox()
   });
 
   var snowcrypt_textarea = $('<textarea/>', {
-    id: "snowcrypt_textarea"
+    id: "snowcrypt_textarea",
+    class: "snowcrypted"
   });
 
   var snowcrypt_replylabel = $('<label/>', {
