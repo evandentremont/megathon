@@ -92,7 +92,5 @@ function toggleInvite()
 */
 function replaceEncryptedText(encrypted_text, decrypted_text)
 {
-
-  decrypted_text.addClass("snowcrypted");
   encrypted_text.replaceWith(decrypted_text);
 }
