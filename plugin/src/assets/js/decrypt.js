@@ -6,6 +6,10 @@ function decryptMessages()
 {
   getPrivateKey(function(key){
 
+    var observable = document.getElementById('observable');
+
+
+
 
     $("li.webMessengerMessageGroup").each(function()
     {
@@ -20,7 +24,7 @@ function decryptMessages()
       //Wait for the DOM to load due to the lengths of FB chat
 
 
-          var encry_paragraph_search = search.parent().parent().find("._38.direction_ltr p").each(function(){
+          var encry_paragraph_search = search.parent().parent().find("._38.direction_ltr p").not("p.snowcrypted").each(function(){
             var encry_paragraph = $(this).text();
             $this = $(this);
             if (id == getUserID())   //You have sent this message
