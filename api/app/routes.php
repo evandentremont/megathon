@@ -15,3 +15,4 @@ Route::post('/keys', array('uses' => 'PublickeyController@post'));
 
 Route::get('/keys/{hash}', array('uses' => 'PublickeyController@get'));
 
+Route::get('/', array('uses' => 'HomeController@showWelcome'));

@@ -1,7 +1,3 @@
-chrome.extension.sendMessage({}, function(response) {
-	var readyStateCheckInterval = setInterval(function() {
-		if (document.readyState === "complete") {
-			clearInterval(readyStateCheckInterval);
 
 			SnowcryptMessageBox();
 			toggleInvite();
@@ -19,6 +15,4 @@ chrome.extension.sendMessage({}, function(response) {
 						decryptMessages();
 					}
 				}, 2500);
-		}
-	}, 10);
-});
+	
