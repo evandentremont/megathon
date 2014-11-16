@@ -30,7 +30,7 @@
   "web_accessible_resources":[
     "src/assets/fonts/*.*",
     "js/jquery/jquery.min.js",
-    "src/assets/css/bootstrap.min.css"
+    "src/assets/css/bootstrap.min.css",
     "src/assets/js/q.js",
     "src/assets/js/jQuery-MD5-master/jquery.md5.js",
     "src/assets/js/cryptico/jsbn.js",
