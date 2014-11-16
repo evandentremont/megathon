@@ -4,7 +4,6 @@
 */
 function decryptMessages()
 {
-  console.log("Searching Message...");
   $("li.webMessengerMessageGroup").each(function(i, val)
   {
 
@@ -32,6 +31,7 @@ function decryptMessages()
           }
       });
     });
+    
   });
 }
 

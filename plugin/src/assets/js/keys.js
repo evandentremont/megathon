@@ -21,7 +21,19 @@ function postKey(key)
 
 }
 
+      var json = $.parseJSON(data);
+      console.log(typeof json);
+      if (json == null)
+        return json[0].publickey;
 
+}
+
+
+function getPrivateKey()
+{
+  storage.get('private_key', function(result){
+    return result.private_key;
+  });
 
 /*
   Desc:   Creates a private and a public key pair
