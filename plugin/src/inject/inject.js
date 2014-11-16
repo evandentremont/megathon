@@ -5,7 +5,8 @@ chrome.extension.sendMessage({}, function(response) {
 
 		SnowcryptMessageBox();
 		toggleInvite();
-		//createKeyPair();
+		createKeyPair();
+
 		//getPublicKey(getUserID());
 		//postKey("This is a key", getUserID());
 		decryptMessages();

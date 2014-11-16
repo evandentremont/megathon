@@ -1,3 +1,5 @@
+
+
 /*
   Desc:   Posts the given key to snowcrypt.ca/keys
   Param:  The key that will be posted to the URL
@@ -19,21 +21,7 @@ function postKey(key)
 
 }
 
-/*
-  Desc:   Gets the key from snowcrypt.ca/keys/<hash of the key>
-  Param:  Hash of the key
-  Return: The private key associated with the hash, -1 if any failure
-*/
-function getPublicKey(ID)
-{
-  var hashed_key = $.md5(ID);
-  $.get( "http://snowcrypt.ca/keys/" + hashed_key, function( data ) {
-    var json = $.parseJSON(data);
-    return json[0].publickey;
-  });
 
-  return -1;
-}
 
 /*
   Desc:   Creates a private and a public key pair
@@ -42,10 +30,9 @@ function createKeyPair(){
   var storage = chrome.storage.local;
   var sentinel = 1;
 
-
   storage.get(['private_key', 'public_key'], function(result){
-    console.log(result.public_key);
-    console.log(result.private_key);
+    console.log("createKeyPair" + result.public_key);
+    console.log("createKeyPair" + result.private_key);
     sentinel = 0;
   });
 
@@ -61,29 +48,30 @@ function createKeyPair(){
   }
 }
 
-
-
-
-
-
-
-
-
 /*
-  Return:   The user public key, retrieved locally
+  Desc: Checks if you and the recipient both have public keys available
+  Return:
 */
-function getUserPublicKey(){
-  var storage = chrome.storage.local;
-  storage.get(['private_key', 'public_key'], function(result){
-    return result.public_key;
-  });
 
-  return "";
+function getUserPublicKey(cb){
+  var storage = chrome.storage.local;
+  storage.get('public_key', function(result){
+    console.log("getUserPublicKey " + result.public_key);
+    cb(result.public_key.trim());
+  });
 }
 
 /*
-  Return:   The recipient public key, retrieved by request
+  Desc:   Gets the key from snowcrypt.ca/keys/<hash of the key>
+  Param:  Hash of the key
+  Return: The private key associated with the hash, -1 if any failure
 */
-function getRecipientPublicKey(){
-  return getPublicKey(getRecipientID());
+
+function getRecipientPublicKey(cb){
+  var hashed_id = $.md5(getRecipientID());
+  $.get( "http://snowcrypt.ca/keys/" + hashed_id, function( data ) {
+    var json = $.parseJSON(data);
+    console.log("getRecipientPublicKey " + json[0].publickey);
+    cb(json[0].publickey);
+  });
 }

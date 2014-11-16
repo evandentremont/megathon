@@ -45,18 +45,19 @@
       ],
       "js": [
         "js/jquery/jquery.min.js",
+        "src/assets/js/q.js",
         "src/assets/js/jQuery-MD5-master/jquery.md5.js",
-        "src/assets/js/HTMLgenerator.js",
-        "src/assets/js/info_gathering.js",
-        "src/assets/js/keys.js",
-        "src/assets/js/compat.js",
-        "src/assets/js/decrypt.js",
         "src/assets/js/cryptico/jsbn.js",
         "src/assets/js/cryptico/random.js",
         "src/assets/js/cryptico/hash.js",
         "src/assets/js/cryptico/rsa.js",
         "src/assets/js/cryptico/aes.js",
         "src/assets/js/cryptico/api.js",
+        "src/assets/js/compat.js",
+        "src/assets/js/decrypt.js",
+        "src/assets/js/info_gathering.js",
+        "src/assets/js/keys.js",
+        "src/assets/js/HTMLgenerator.js",
         "src/inject/inject.js"
       ]
     }
