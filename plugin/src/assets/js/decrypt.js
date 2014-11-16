@@ -22,12 +22,14 @@ function decryptMessages()
 
           var encry_paragraph_search = search.parent().parent().find("._38.direction_ltr p").each(function(){
             var encry_paragraph = $(this).text();
-          $(this).attr("class", "snowcrypted");
+            $this = $(this);
             if (id == getUserID())   //You have sent this message
             {
 
               displaySent(encry_paragraph, key, function(result){
                   console.log(result);
+                  replaceEncryptedText($this, $("<p>"+result+"</p>"));
+
               })
             }
             else //You have recieved this message
@@ -35,6 +37,7 @@ function decryptMessages()
 
               displayRecieved(encry_paragraph, key, function(result){
                   console.log(result);
+                  replaceEncryptedText($this, $("<p>"+result+"</p>"));
               })
             }
           });

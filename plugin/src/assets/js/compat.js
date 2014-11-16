@@ -5,15 +5,17 @@
 */
 function isCompatible()
 {
-  getRecipientPublicKey(function(result){
-    var recipient_public_key = result;
-    //alert(recipient_public_key);
-    if (recipient_public_key)
-    {
+
+  var recipient_public_key = getRecipientPublicKey(function(result){
+      recipient_public_key = result;
+      alert(recipient_public_key);
+      if (recipient_public_key == undefined)
+      {
+        console.log("False from callback");
+        return false;
+      }
+      console.log("True from callback");
       return true;
-    }
-    else return false;
-  });
   });
 
 
@@ -21,5 +23,7 @@ function isCompatible()
 
   if(recipient_public_key == true){
     return true;
-  return false;
+  }
+
+
 }
