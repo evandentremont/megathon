@@ -6,8 +6,8 @@ chrome.extension.sendMessage({}, function(response) {
 			SnowcryptMessageBox();
 			toggleInvite();
 
-			createNewKeyPair();
-			
+		//	createNewKeyPair();
+
 			createKeyPair();
 
 			var numMessages = 0;
